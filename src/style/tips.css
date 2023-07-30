@@ -1,0 +1,13 @@
+
+.tips-container {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.qoustion {
+    grid-row: 2;
+    text-align: center;
+}
+

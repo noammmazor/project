@@ -1,0 +1,59 @@
+.Header-line {
+  border-bottom: 4px solid black;
+  width: 100%;
+  padding: 16px 24px 48px;
+  margin-bottom: 48px;
+}
+title {
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-top: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.title .Header-line {
+  width: 90%;
+  max-width: 700px;
+  font-size: 2.0652rem;
+  margin-bottom: 28px;
+}
+h1 {
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-top: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+p {
+  display: block;
+  font-size: x-large;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.name .date {
+  display: block;
+  margin-bottom: 8px;
+  padding-right: 24px;
+  font-style: oblique;
+}
+.imges-puppy {
+/*  padding-left: 10vh;  */
+  /* border-radius: 40px 40px 40px 40px; */
+  width:100%;
+  border-style: none;
+  /* background-image: url("https://www.rd.com/wp-content/uploads/2021/03/GettyImages-1133605325-scaled-e1617227898456.jpg?fit=696,463");
+    background-size: cover;
+    background-position: center; */
+}
+strong {
+  font-weight: 700;
+  font-style: italic;
+}
+.container {
+  padding: 0 14px;
+  font-size: 1.1857rem;
+  line-height: 1.6;
+  width: 90%;
+}

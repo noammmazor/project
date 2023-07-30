@@ -1,0 +1,25 @@
+h1 {
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-top: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.percfet{
+    text-decoration: none;
+    color: white;
+}
+.percfet:hover{
+    color:green;
+}
+
+.header-wrapper {
+  border-bottom: 4px solid black;
+  width: 100%;
+  padding: 16px 24px 48px;
+  margin-bottom: 48px;
+}
+.link{
+  text-decoration: none;
+  color: black;
+}

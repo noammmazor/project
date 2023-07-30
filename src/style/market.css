@@ -1,0 +1,79 @@
+.bg {
+  background-image: url("https://www.justfoodfordogs.com/on/demandware.static/-/Library-Sites-JustFoodForDogsSharedLibrary/default/dw9edf628b/homepage/1440x652%20homepage%20image.jpg");
+  width: 100%;
+  border-style: none;
+  margin-top: 20px;
+  height: 80vh;
+}
+p {
+  padding: 20px;
+  display: block;
+  font-size: xx-large;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-top: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.tit {
+  width: 40vw;
+  color: #0b243a;
+}
+.article {
+  margin-bottom: 8px;
+  padding-right: 24px;
+  width: 40vw;
+}
+.article__header-wrapper {
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding: 16px 24px 48px;
+  margin-bottom: 38px;
+}
+.Food {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.Food:hover {
+  color: rgb(235, 235, 235);
+}
+.desc {
+  background-color: var(--backgroundColor, #4d85b9);
+  width: 100%;
+  height: 90vh;
+}
+.pic {
+  font-size: xxx-large;
+
+}
+  .vid{
+   width:350px ;
+  }
+@media screen and (max-width: 1199px) {
+  .desc {
+    background-color: var(--backgroundColor, #4d85b9);
+    flex-direction: column;
+    display: flex;
+    height: 180vh;
+  }
+  .article {
+    margin-bottom: 8px;
+    padding-right: 24px;
+    font-size: large;
+  }
+  .tit {
+    width: 90vw;
+  }
+  .vid{
+    width:400px ;
+   }
+}
