@@ -10,13 +10,23 @@ export default function Like() {
   const { user } = useUserAuth();
   const [show, setShow] = useState([]);
   const {plus , setPlus}=useUserAuth();
-
+ 
 
 useEffect(()=>{
   setPlus(show.length)
   console.log(plus);
   console.log(show.length);
 },[show.length]);
+
+let sum=0 , sumPrice=0 ;
+for (let index = 0; index < show.length; index++) {
+sum+=show[index].counter;
+sumPrice+=show[index].price;
+}
+console.log(sum);
+console.log(sumPrice);
+
+
 
   useEffect(() => {
        // Fetches data from Firebase Firestore when the component mounts or when the user email changes
@@ -118,11 +128,11 @@ useEffect(()=>{
               <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                   Products
-                  <span>{show.length}</span>
+                  <span>{sum}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                   Shipping
-                  <span>"...."</span>
+                  <span>{sumPrice}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                   <div>
