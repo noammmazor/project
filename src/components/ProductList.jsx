@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import "../style/Product.css";
@@ -9,8 +9,9 @@ import { useUserAuth } from "../context/Context";
 
 export default function ProductList({ data }) {
   const { data2 } = useParams();
+ const {plus , setPlus}= useUserAuth()
   console.log(data2);
-  console.log(data);
+ 
   const [counter, setCounter] = useState(0);
 
 
@@ -26,15 +27,16 @@ export default function ProductList({ data }) {
     setCounter(counter + 1);
     console.log(counter);
   };
-
+  
   const remoove = () => {
-        // Decreases the counter for the product, if it's greater than 0
+    // Decreases the counter for the product, if it's greater than 0
     if (counter > 0) setCounter(counter - 1);
   };
+  
 
   const saveProduct = async () => {
     if (0 < counter) {
-           // Saves the product to the user's liked items in Firebase Firestore
+      // Saves the product to the user's liked items in Firebase Firestore
       console.log(currProduct[0].name);
       await updateDoc(users, {
         newArr: arrayUnion({
@@ -46,6 +48,7 @@ export default function ProductList({ data }) {
           price: currProduct[0].price,
         }),
       });
+      setPlus(plus+1)
       alert("the prodcut in the cart");
     } else if ((counter === 0)) {
       alert("Please add product to your cart");

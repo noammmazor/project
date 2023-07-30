@@ -9,8 +9,14 @@ import "../style/CSS.css";
 export default function Like() {
   const { user } = useUserAuth();
   const [show, setShow] = useState([]);
+  const {plus , setPlus}=useUserAuth();
 
 
+useEffect(()=>{
+  setPlus(show.length)
+  console.log(plus);
+  console.log(show.length);
+},[show.length]);
 
   useEffect(() => {
        // Fetches data from Firebase Firestore when the component mounts or when the user email changes
@@ -36,7 +42,7 @@ export default function Like() {
     }
   };
 
-  if (  user) {   
+  if (user) {   
      // Renders the liked items if there are items and a user is logged in
   
     return (
@@ -112,7 +118,7 @@ export default function Like() {
               <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                   Products
-                  <span>{"updateProductCounts"}</span>
+                  <span>{show.length}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                   Shipping

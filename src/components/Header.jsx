@@ -9,6 +9,8 @@ import { useUserAuth } from "../context/Context";
 
 export default function Header() {
   const { logOut } = useUserAuth();
+  const {plus , setPlus}=useUserAuth();
+
 
   const navigate = useNavigate();
 
@@ -63,9 +65,9 @@ export default function Header() {
                 variant="black"
               >
                 <BsFillCartFill />
-            {/*     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
-               0
-                </span> */}
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+             {plus}
+                </span> 
               </Button>
             </Link>
 
