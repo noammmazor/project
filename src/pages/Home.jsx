@@ -1,11 +1,8 @@
 import React from "react";
 import "../style/CSS.css";
-import { GiJumpingDog, GiSittingDog, GiSniffingDog } from "react-icons/gi";
 import { useUserAuth } from "../context/Context";
 import { Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
 import Mycard from "../components/Mycard";
 
 export default function Home() {
@@ -14,11 +11,11 @@ export default function Home() {
   console.log("chack user in private :", user);
 
   return ( <>   
-   <figure class="text-center">
-  <blockquote class="blockquote fst-italic">
+   <figure className="text-center">
+  <blockquote className="blockquote fst-italic">
     <p>Welcome To Are Website.  {user?.displayName}</p>
   </blockquote>
-  <figcaption class="blockquote-footer fst-italic">
+  <figcaption className="blockquote-footer fst-italic">
     lets find dog for you <cite title="Source Title">  {user?.email}</cite>
   </figcaption>
 </figure>    
@@ -28,7 +25,7 @@ export default function Home() {
         <Image src="https://cdn.shopify.com/s/files/1/0201/1744/files/Dogs-natural-treatments-depression-anxiety.jpg?v=1618612287" />
         <div className="header-wrapper"></div>
         <div className="float">
-          <h2>Life is better with dogs</h2>
+          <h2 className="blockquote fst-italic">Life is better with dogs</h2>
           Nothing beats a long walk with your four-legged friend on a fresh,
           spring morning. Or seeing the joy on their faces when you pick up a
           ball and they know it's playtime in the local park Even relaxing at

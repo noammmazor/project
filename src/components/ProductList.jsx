@@ -8,6 +8,7 @@ import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { useUserAuth } from "../context/Context";
 
 export default function ProductList({ data }) {
+  const newArr = []
   const { data2 } = useParams();
  const {plus , setPlus}= useUserAuth()
   console.log(data2);
@@ -33,29 +34,66 @@ export default function ProductList({ data }) {
     if (counter > 0) setCounter(counter - 1);
   };
   
+  
+  // const saveProduct = async () => {
+  //   if (0 < counter) {
+  //     // Saves the product to the user's liked items in Firebase Firestore
+  //     console.log(currProduct[0].name);
+  //     await updateDoc(users, {
+  //       newArr: arrayUnion({/***** chack if (the product in the arry ) return product+product else return newArr  *****/
+  //         counter: counter,
+  //         id: currProduct[0].id,
+  //         name: currProduct[0].name,
+  //         title: currProduct[0].title,
+  //         pic: currProduct[0].pic,
+  //         price: currProduct[0].price,
+  //       }),
+  //     });
+  //     setPlus(plus+1)
+  //     alert("the prodcut in the cart");
+  //   } else if ((counter === 0)) {
+  //     alert("Please add product to your cart");
+  //   } else {
+  //     return false
+  //   };
+  // };
+
 
   const saveProduct = async () => {
-    if (0 < counter) {
-      // Saves the product to the user's liked items in Firebase Firestore
-      console.log(currProduct[0].name);
-      await updateDoc(users, {
-        newArr: arrayUnion({
+ 
+        if (counter > 0) {
+      const productExists = newArr.some(item => item.id === currProduct[0].id);
+  
+      if (productExists) {
+        const updatedArr = newArr.map(item =>
+          item.id === currProduct[0].id
+            ? { ...item, counter: item.counter + counter }
+            : item
+        );
+        await updateDoc(users, { newArr: updatedArr });
+        setPlus(plus + 1);
+        alert("Product quantity updated in the cart");
+         } else if(!newArr) {
+        const newItem = {
           counter: counter,
           id: currProduct[0].id,
           name: currProduct[0].name,
           title: currProduct[0].title,
           pic: currProduct[0].pic,
           price: currProduct[0].price,
-        }),
-      });
-      setPlus(plus+1)
-      alert("the prodcut in the cart");
-    } else if ((counter === 0)) {
-      alert("Please add product to your cart");
+        };
+  
+        await updateDoc(users, { newArr: arrayUnion(newItem) });
+        setPlus(plus + 1);
+        alert("Product added to the cart");
+      }
     } else {
-      return false
-    };
+      alert("Please add a product to your cart");
+    }
   };
+
+
+
 
   if (currProduct) {
     return (
@@ -81,7 +119,6 @@ export default function ProductList({ data }) {
                 <li>Hypoallergenic Dog {currProduct[0].title}</li>
               </div>
               <h1>${currProduct[0].price}</h1>
-              <br></br>{" "}
               <div className="p-4 ">
                 <div className="d-flex justify-content-evenly">
                    <button className="btn btn-light" onClick={remoove}>

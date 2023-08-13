@@ -4,7 +4,7 @@ import "../style/CSS.css"
 export default function Mycard() {
   return (
     <div className="container">
-    <div className="card">
+    <div className="card" style={{border : 'none'}}>
       <div className="face face1">
         <div className="content">
           <i><GiSittingDog/></i>
@@ -19,7 +19,7 @@ export default function Mycard() {
         </div>
       </div>
     </div>
-    <div className="card">
+    <div className="card" style={{border : 'none'}}>
       <div className="face face1">
         <div className="content">
           <i><GiSniffingDog/></i>
@@ -34,7 +34,7 @@ export default function Mycard() {
         </div>
       </div>
     </div>
-    <div className="card">
+    <div className="card" style={{border : 'none'}}>
       <div className="face face1">
         <div className="content">
         <i><GiJumpingDog/></i>

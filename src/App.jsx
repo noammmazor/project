@@ -1,4 +1,5 @@
 import "./App.css";
+
 import { Route, Routes } from "react-router-dom";
 import { useUserAuth } from "../src/context/Context";
 
@@ -24,6 +25,7 @@ import Footer from "./components/Footer";
 import Signup from "./singIn/Signup";
 import SignIn from "./singIn/LogIn";
 import Parks from "./pages/Parks";
+
 
 function App() {
 
@@ -82,7 +84,7 @@ function App() {
 
       {
         user ?
-          <Footer /> : <div></div>
+          <Footer /> : <div className="">pls connect to are website</div>
       }
 
     </div>

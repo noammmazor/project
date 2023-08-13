@@ -7,11 +7,11 @@ import { FaTrashAlt } from "react-icons/fa";
 import "../style/CSS.css";
 
 export default function Like() {
-  const { user } = useUserAuth();
-  const [show, setShow] = useState([]);
-  const {plus , setPlus}=useUserAuth();
- 
 
+  const [show, setShow] = useState([]);
+  const {plus , setPlus,user}=useUserAuth();
+ 
+//to counter the item in the cart
 useEffect(()=>{
   setPlus(show.length)
   console.log(plus);
@@ -26,7 +26,7 @@ sumPrice+=show[index].price;
 console.log(sum);
 console.log(sumPrice);
 
-
+/************need to add  item to the item rezolve */
 
   useEffect(() => {
        // Fetches data from Firebase Firestore when the component mounts or when the user email changes
@@ -42,11 +42,13 @@ console.log(sumPrice);
   const deleteProduct = async (passedID) => {
     try {
            // Deletes a product from the user's liked items
-      const result = show.filter((item) => item.id !== passedID);
+      const result = show.filter((item) => item.id !== passedID);//*******!chack how to remove item not by id 
 
       await updateDoc(productRef, {
         newArr: result,
+        
       });
+    
     } catch (error) {
       console.log(error);
     }
@@ -56,12 +58,12 @@ console.log(sumPrice);
      // Renders the liked items if there are items and a user is logged in
   
     return (
-      <div>
-        <div className="row">
+      <div className="flex">
           {" "}
           {show.map((item) => {
             return (
-              <>
+              <div className="row">
+              
                 <div className=" col-lg-8">
                   <div className="cart_container">
                     <div className="cart_items">
@@ -115,7 +117,8 @@ console.log(sumPrice);
                     </div>
                   </div>
                 </div>
-              </>
+          </div>
+              
             );
           })}
           <div class="col-lg-3">
@@ -149,7 +152,6 @@ console.log(sumPrice);
             </div>
           </div>
         </div>
-      </div>
     );
   } else {
     return <h1>The Cart Is Empty!!!</h1>;

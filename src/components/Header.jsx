@@ -9,7 +9,7 @@ import { useUserAuth } from "../context/Context";
 
 export default function Header() {
   const { logOut } = useUserAuth();
-  const {plus , setPlus}=useUserAuth();
+  const {plus }=useUserAuth();
 
 
   const navigate = useNavigate();
